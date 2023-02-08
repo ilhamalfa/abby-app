@@ -1,0 +1,46 @@
+database lineup PREMIO
+
+-untuk yg navbar ga ada database, cukup segitu aja
+-untuk navbar kasih fungsi yg bisa nambahin text, supaya visited link udah
+langsung ditambahin text(active) kalo visited
+-ada sistem login untuk admin supaya bisa crud nya di page yg beda (kyk cahsaiki)
+-meta title untuk dimasing masing page
+-alert untuk delete data
+-verif untuk lupa passowrd
+------------------------------------------------------------------
+konten nya bekin ada -10000
+
+
+FOOTER
+1. address (text) = footer_address
+2. Social media (link) = footer_socmed
+3. Contact car audio (phone, text) = footer_contact_car
+4. contact auto detailing (phone, text) = footer_contact_detailing
+
+PAGE HOME:
+1. carousel banner (id, name, image, link) = home_carouselbanner
+2. provide (image) = home_service
+3. value (image, title, text) = home_value
+4. highlight (image) = home_highlight
+
+PAGE CAR AUDIO & AUTO DETAILING
+1. banner (image) = car_banner & auto_banner
+2. service baris 1 (image, text title, text body) = car_service & auto_service
+3. service baris 2 (image, text title, text body) = car_service & auto_service
+4. highlight (image) = car_highlight & auto_highlight
+5. brands partner (image) = car_brands & auto_brands
+
+GALLERY
+dibuat parent and child, parent nya masing masing category
+child nya nanti image nya biar bisa langsung dimasukin ke category nya
+
+1. car audio (image) = image_category (parentnya car)
+2. auto detailing (image) = image_category (parentnya auto)
+3. showroom & workshop (image) = image_category (parentnya showroom)
+
+PROFILE
+1. title (text) = profile_title
+2. body (text) = profile_body
+3. image (image) = profile_image
+
+Untuk atribut semua butuh Id
