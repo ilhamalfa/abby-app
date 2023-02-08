@@ -33,9 +33,9 @@
   
       <div class="separator"></div>
   
-      <div class="gallery-category">
-        <div class="gallery-canvas">
-          <ul class="gallery-ul">
+      <div class="gallery-category-canvas">
+        <div class="gallery-category">
+          <ul class="gallery-ul" id="gal-category">
             <li class="gallery-li"><a href="/gallery-caraudio">CAR AUDIO</a></li>
             <li class="gallery-li"><a href="/gallery-showroom">SHOWROOM & WORKSHOP</a></li>
             <li class="gallery-li"><a href="/gallery-autodetailing">AUTO DETAILING</a></li>
@@ -47,6 +47,7 @@
 
     @yield('content')
 
+    <div class="separator"></div>
     
 
       {{-- FOOTER --}}
