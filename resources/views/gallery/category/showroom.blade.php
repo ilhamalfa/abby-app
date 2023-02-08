@@ -8,18 +8,33 @@
     
     <a href="" class="gallery-item mx-auto">
       <img src="img/12.jpg" class="rounded mx-auto d-block gal-img" alt="...">
+      <div class="gal-cat-title">
+        <span>SHOWROOM</span>
+      </div>
     </a>
     <a href="" class="gallery-item mx-auto">
     <img src="img/13.jpg" class="rounded mx-auto d-block gal-img" alt="...">
+    <div class="gal-cat-title">
+      <span>SHOWROOM</span>
+    </div>
   </a>
   <a href="" class="gallery-item mx-auto">
     <img src="img/14.jpg" class="rounded mx-auto d-block gal-img" alt="...">
+    <div class="gal-cat-title">
+      <span>SHOWROOM</span>
+    </div>
   </a>
   <a href="" class="gallery-item mx-auto">
     <img src="img/12.jpg" class="rounded mx-auto d-block gal-img" alt="...">
+    <div class="gal-cat-title">
+      <span>SHOWROOM</span>
+    </div>
   </a>
   <a href="" class="gallery-item mx-auto">
     <img src="img/13.jpg" class="rounded mx-auto d-block gal-img" alt="...">
+    <div class="gal-cat-title">
+      <span>SHOWROOM</span>
+    </div>
   </a>
     <a href="" class="gallery-item mx-auto">
     <img src="img/14.jpg" class="rounded mx-auto d-block gal-img" alt="...">
