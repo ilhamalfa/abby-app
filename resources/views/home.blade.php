@@ -62,7 +62,7 @@
     {{-- FIRST CANVAS - VALUE --}}
     <div class="canvas-value" id="first" >
 
-      <div class="card mb-3" style="max-width: 200px; background: #222222; color: white">
+      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
@@ -77,7 +77,7 @@
         </div>
       </div>
 
-      <div class="card mb-3" style="max-width: 200px; background: #222222; color: white">
+      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
@@ -97,7 +97,7 @@
 
     {{-- SECOND CANVAS - VALUE --}}
     <div class="canvas-value" id="second">
-      <div class="card mb-3" style="max-width: 200px; background: #222222; color: white">
+      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
@@ -112,7 +112,7 @@
         </div>
       </div>
 
-      <div class="card mb-3" style="max-width: 200px; background: #222222; color: white">
+      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
@@ -134,7 +134,7 @@
 
     <div class="canvas-value" id="third">
 
-      <div class="card mb-3" style="max-width: 200px; background: #222222; color: white;">
+      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
@@ -149,7 +149,7 @@
         </div>
       </div>
 
-      <div class="card mb-3" style="max-width: 200px; background: #222222; color: white;">
+      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
