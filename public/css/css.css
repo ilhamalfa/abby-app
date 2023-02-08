@@ -297,12 +297,6 @@ footer{
     padding: 40px 40px;
 }
 
-.gallery-ul{
-    display: flex;
-    text-decoration: none;
-    list-style: none;
-}
-
 .gallery-li > a{
     margin-right: 40px;
     margin-left: 40px;
@@ -311,12 +305,33 @@ footer{
     color: #ffffff;
 }
 
+@media screen and (max-width: 720px) {
+    .gallery-canvas{
+        padding: 0 0;
+    }
+    .gallery-li > a{
+        margin: 0;
+    }
+}
+
+.gallery-ul{
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+}
+
+#gal-category{
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
 .gallery-li > a:hover{
     color: #ffe600;
 }
 
 .gallery-item{
     margin: 20px 0;
+    text-decoration: none;
 }
 
 .gallery-image{
@@ -327,4 +342,9 @@ footer{
 
 .gal-img{
     width: 380px;
+}
+
+.gal-cat-title{
+    color: white;
+    font-size: 18px;
 }
