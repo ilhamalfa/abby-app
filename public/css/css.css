@@ -182,11 +182,15 @@ footer{
     display: block;
 }
 
+.social-media{
+    width: 20%;
+}
+
 .address-content{
 }
 
 #socmed-t{
-
+    justify-content: center;
 }
 
 .socmed-icon{
@@ -282,12 +286,18 @@ footer{
 
 }
 
-.gallery-category{
+.gallery-category-canvas{
     width: 100%;
     display: flex;
     height: auto;
     background: #222222;
     justify-content: space-around;
+}
+
+.gallery-category{
+    display: flex;
+    text-align: center;
+    padding: 40px 0;
 }
 
 .gallery-canvas{
