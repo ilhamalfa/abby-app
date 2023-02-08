@@ -32,6 +32,12 @@ section{
     width: 360px;
 }
 
+@media screen and (max-width: 720px) {
+    #img-val{
+        max-width: 200px;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .canvas-image{
         flex-direction: column;
@@ -97,16 +103,19 @@ section{
     font-size: 12px;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 720px) {
     .home-value{
         display: flex;
-        flex-wrap: row wrap;
+        flex-flow: row wrap;
     }
 
     .canvas-value{
-        flex-direction: column;
         align-items: center;
         margin: auto;
+    }
+
+    #img-val{
+        width: 200px;
     }
 
     .value-title{
