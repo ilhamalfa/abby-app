@@ -278,12 +278,22 @@ footer{
 
 .brands-partner{
     width: 100%;
-    height: 360px;
+    height: auto;
     background: #222222;
 }
 
 .canvas-brands{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    padding: 10px 40px;
+}
 
+.brands-img{
+    width: 300px;
+    margin: 10px 40px;
 }
 
 .gallery-category-canvas{
