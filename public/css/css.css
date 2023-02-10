@@ -226,6 +226,10 @@ footer{
         margin-right: auto;
     }
 
+    .social-media{
+        width: 60%;
+    }
+
     .footer-title{
         display: flex;
         align-items: center;
@@ -294,6 +298,12 @@ footer{
 .brands-img{
     width: 300px;
     margin: 10px 40px;
+}
+
+@media screen and (max-width: 720px) {
+    .brands-img{
+        margin: 20px 40px;
+    }
 }
 
 .gallery-category-canvas{
