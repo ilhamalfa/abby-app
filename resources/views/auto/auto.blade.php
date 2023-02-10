@@ -69,14 +69,14 @@
             <span class="title" id="brands-t-autodetailing">BRANDS PARTNER :</span>
           </div>
         <div class="canvas-brands" id="autodetailing-brands">
-            <img src="" alt="" class="">
-            <img src="" alt="" class="">
-            <img src="" alt="" class="">
-            <img src="" alt="" class="">
-            <img src="" alt="" class="">
-            <img src="" alt="" class="">
-            <img src="" alt="" class="">
-            <img src="" alt="" class="">
+            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
+            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
+            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
+            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
+            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
+            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
+            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
+            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
         </div>
     </div>
     {{-- END OF BRANDS PARTNER --}}
