@@ -18,7 +18,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/caraudio', function () {
+    return view('audio.audio');
+});
+
+Route::get('/autodetailing', function () {
+    return view('auto.auto');
+});
+
+Route::get('/gallery', function () {
+    return view('gallery.category.showroom');
+});
+
+Route::get('/gallery-showroom', function () {
+    return view('gallery.category.showroom');
+});
+
+Route::get('/gallery-caraudio', function () {
+    return view('gallery.category.caraudio');
+});
+
+Route::get('/gallery-autodetailing', function () {
+    return view('gallery.category.autodetailing');
+});
+
+Route::get('/profile', function () {
+    return view('profile.profile');
 });
 
 Route::get('/dashboard', function () {
