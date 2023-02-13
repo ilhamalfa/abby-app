@@ -8,10 +8,12 @@
         ADDRESS
       </span>
     </div>
-      <p class="address-content">Jl. Green Ville Blok AX No.40,<br>
+      <p class="address-content">
+        Jl. Green Ville Blok AX No.40,<br>
         RT.10/RW.14, Duri Kepa, Kec. Kb. Jeruk,<br>
         Kota Jakarta Barat <br>
         Daerah Khusus Ibukota Jakarta</p>
+        {{-- {{ $address->text }} --}}
     </div>
 
     <div class="social-media">
@@ -19,7 +21,7 @@
         SOCIAL MEDIA
       </span>
       <div class="socmed-icon">
-        <a href="" class="icon-socmed">
+        {{-- <a href="" class="icon-socmed">
           <img src="img/ig-icon.png" class="img-socmed" id="ig" alt="#Instagram">
         </a>
         <a href="" class="icon-socmed">
@@ -27,7 +29,12 @@
         </a>
         <a href="" class="icon-socmed">
           <img src="img/yt-icon.png" class="img-socmed" id="yt" alt="#YouTube">
-        </a>
+        </a> --}}
+        @foreach ($socmeds as $socmed)
+          <a href="{{ $socmed->link }}" class="icon-socmed">
+            <img src="img/{{ $socmed->category }}.png"  class="img-socmed" id="fb" alt="#Facebook">
+          </a>
+        @endforeach
       </div>
     </div>
 
@@ -35,11 +42,11 @@
       <div class="footer-title" id="contact-t">
       <span class="title">CAR AUDIO</span>
     </div>
-      <span class="contact-text">Tel: +62 8XX XXXX XXXX (Hendro)</span>
+      <span class="contact-text">Tel: +{{ $contactcar->phone }} ({{ $contactcar->text }})</span>
       <div class="footer-title" id="contact-t">
       <span class="title">AUTO DETAILING</span>
     </div>
-      <span class="contact-text">Tel: +62 8XX XXXX XXXX (Hendro)</span>
+      <span class="contact-text">Tel: +{{ $contactdetailing->phone }} ({{ $contactdetailing->text }})</span>
     </div>
 
   </div>

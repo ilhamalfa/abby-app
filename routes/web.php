@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\HomeDashboardController;
 use App\Models\FooterAddress;
+use App\Models\FooterContactCar;
+use App\Models\FooterContactDetailling;
 use App\Models\FooterSocmed;
+use App\Models\HomeCarouselBanner;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +22,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $address = FooterAddress::find(1);
+    $socmeds = FooterSocmed::where('is_active', true)->get();
+    $contactcar = FooterContactCar::find(1);
+    $contactdetailing = FooterContactDetailling::find(1);
+    $carousels = HomeCarouselBanner::all();
+
+    return view('home', [
+        'address' => $address,
+        'socmeds' => $socmeds,
+        'contactcar' => $contactcar,
+        'contactdetailing' => $contactdetailing,
+        'carousels' => $carousels
+    ]);
 });
 
 Route::get('/caraudio', function () {
@@ -74,3 +90,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
     // Contact auto
     Route::post('/dashboard/footer/updateContactAuto/{id}', [FooterController::class, 'updateContactAuto']);
+
+// Dashboard Home Controller
+    Route::get('/dashboard/home', [HomeDashboardController::class, 'index']);
+
+    // Add, Edit, Delete Carousel
+    Route::post('/dashboard/home/addCarousel', [HomeDashboardController::class, 'storeCarousel']);
+    Route::post('/dashboard/home/editCarousel/{id}', [HomeDashboardController::class, 'updateCarousel']);
+    Route::get('/dashboard/home/deleteCarousel/{id}', [HomeDashboardController::class, 'deleteCarousel']);

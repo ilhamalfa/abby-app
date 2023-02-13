@@ -7,14 +7,13 @@
 <div id="carousel-banner" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="4000">
-      <img src="img/12.jpg" class="d-block w-100" alt="...">
+      <img src="{{ asset('storage/'. $carousels[0]->image) }}" class="d-block w-100" alt="...">
     </div>
+    @foreach ($carousels->skip(1) as $carousel)
     <div class="carousel-item" data-bs-interval="4000">
-      <img src="img/13.jpg" class="d-block w-100" alt="...">
+      <img src="{{ asset('storage/'. $carousel->image) }}" class="d-block w-100" alt="...">
     </div>
-    <div class="carousel-item" data-bs-interval="4000">
-      <img src="img/14.jpg" class="d-block w-100" alt="...">
-    </div>
+    @endforeach
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
