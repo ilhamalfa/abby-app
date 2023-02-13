@@ -85,6 +85,7 @@ section{
 .home-value{
     display: block;
     height: auto;
+    width: 70%;
 }
 
 .canvas-value{
