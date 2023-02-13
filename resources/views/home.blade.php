@@ -7,13 +7,14 @@
 <div id="carousel-banner" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="4000">
-      <img src="{{ asset('storage/'. $carousels[0]->image) }}" class="d-block w-100" alt="...">
+      <img src="img/12.jpg" class="d-block w-100" alt="...">
     </div>
-    @foreach ($carousels->skip(1) as $carousel)
     <div class="carousel-item" data-bs-interval="4000">
-      <img src="{{ asset('storage/'. $carousel->image) }}" class="d-block w-100" alt="...">
+      <img src="img/13.jpg" class="d-block w-100" alt="...">
     </div>
-    @endforeach
+    <div class="carousel-item" data-bs-interval="4000">
+      <img src="img/14.jpg" class="d-block w-100" alt="...">
+    </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -56,7 +57,7 @@
     <span class="title" id="value">PREMIUM CAR AUDIO & AUTO DETAILING WORKSHOP</span>
   </div>
 
-  <div class="home-value">
+  <div class="home-value mx-auto">
 
     {{-- FIRST CANVAS - VALUE --}}
     <div class="canvas-value" id="first" >
@@ -64,7 +65,7 @@
       <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
+            <img src="img/professional-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -79,7 +80,7 @@
       <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
+            <img src="img/cafeteria-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -99,7 +100,7 @@
       <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
+            <img src="img/detail-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -114,7 +115,7 @@
       <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
+            <img src="img/showroom-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -136,7 +137,7 @@
       <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
+            <img src="img/tools-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -151,7 +152,7 @@
       <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="img/professional.png" class="img-fluid rounded-start" alt="#professionalspecialist">
+            <img src="img/premium-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
           </div>
           <div class="col-md-8">
             <div class="card-body">
