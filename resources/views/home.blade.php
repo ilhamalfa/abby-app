@@ -168,7 +168,12 @@
   <div class="title-frame">
     <span class="title" id="highlight-t">HIGHLIGHT</span>
   </div>
+  @foreach ($highlights as $highlight)
   <div class="canvas-image" id="highlight-home">
+    <img src="{{ asset('storage/' . $highlight->image) }}" class="img-fluid" alt="#workshop">
+  </div>
+  @endforeach
+  {{-- <div class="canvas-image" id="highlight-home">
     <img src="img/12.jpg" class="img-fluid" alt="#workshop">
   </div>
   <div class="canvas-image" id="highlight-home">
@@ -176,7 +181,7 @@
   </div>
   <div class="canvas-image" id="highlight-home">
     <img src="img/14.jpg" class="img-fluid" alt="#showroom">
-  </div>
+  </div> --}}
 </div>
 </section>
 

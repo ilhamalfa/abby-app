@@ -7,6 +7,7 @@ use App\Models\FooterContactCar;
 use App\Models\FooterContactDetailling;
 use App\Models\FooterSocmed;
 use App\Models\HomeCarouselBanner;
+use App\Models\HomeHighlight;
 use App\Models\HomeService;
 use App\Models\HomeValue;
 use Illuminate\Support\Facades\Auth;
@@ -31,6 +32,7 @@ Route::get('/', function () {
     $carousels = HomeCarouselBanner::all();
     $services = HomeService::limit(4)->get();
     $values = HomeValue::all();
+    $highlights = HomeHighlight::all();
 
     return view('home', [
         'address' => $address,
@@ -39,7 +41,8 @@ Route::get('/', function () {
         'contactdetailing' => $contactdetailing,
         'carousels' => $carousels,
         'services' => $services,
-        'values' => $values
+        'values' => $values,
+        'highlights' => $highlights,
     ]);
 });
 
