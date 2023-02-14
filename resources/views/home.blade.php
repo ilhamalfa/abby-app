@@ -7,14 +7,13 @@
 <div id="carousel-banner" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="4000">
-      <img src="img/12.jpg" class="d-block w-100" alt="...">
+      <img src="{{ asset('storage/' . $carousels[0]->image) }}" class="d-block w-100" alt="{{ $carousels[0]->name }}">
     </div>
+    @foreach ($carousels->skip(1) as $carousel)
     <div class="carousel-item" data-bs-interval="4000">
-      <img src="img/13.jpg" class="d-block w-100" alt="...">
+      <img src="{{ asset('storage/' . $carousel->image) }}" class="d-block w-100" alt="{{ $carousel->name }}">
     </div>
-    <div class="carousel-item" data-bs-interval="4000">
-      <img src="img/14.jpg" class="d-block w-100" alt="...">
-    </div>
+    @endforeach
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -29,7 +28,7 @@
 {{-- END CAROUSEL BANNER --}}
 
 <div class="separator"></div>
- 
+
 {{-- CANVAS PROVIDE --}}
 <section>
 <div class="home-provide">
@@ -37,10 +36,9 @@
     <span class="title" id="provide">WE PROVIDES :</span>
   </div>
   <div class="canvas-image" id="provide">
-    <img src="img/12.jpg" class="rounded mx-auto d-block img-provide" alt="CAR AUDIO">
-    <img src="img/13.jpg" class="rounded mx-auto d-block img-provide" alt="SOUNDPROOFING">
-    <img src="img/14.jpg" class="rounded mx-auto d-block img-provide" alt="AUTO DETAILING">
-    <img src="img/12.jpg" class="rounded mx-auto d-block img-provide" alt="PREMIUM CARWASH">
+    @foreach ($services as $service)
+      <img src="{{ asset('storage/' . $service->image) }}" class="rounded mx-auto d-block img-provide" alt="...">
+    @endforeach
   </div>
 </div>
 </section>
@@ -51,125 +49,115 @@
 
 {{-- VALUE --}}
 <section>
-<div class="value-home">
-  
-  <div class="title-frame">
-    <span class="title" id="value">PREMIUM CAR AUDIO & AUTO DETAILING WORKSHOP</span>
+  <div class="value-home">
+    
+    <div class="title-frame mb-3">
+      <span class="title" id="value">PREMIUM CAR AUDIO & AUTO DETAILING WORKSHOP</span>
+    </div>
+
+    <div class="home-value mx-auto">
+
+      {{-- FIRST CANVAS - VALUE --}}
+      <div class="canvas-value" id="first" >
+
+        <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{ asset('storage/' . $values[0]->image) }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h6 class="value-title">{{ $values[0]->title }}</h6>
+                <p class="value-text">{{ $values[0]->text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{ asset('storage/' . $values[1]->image) }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h6 class="value-title">{{ $values[1]->title }}</h6>
+                <p class="value-text">{{ $values[1]->text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {{-- SECOND CANVAS - VALUE --}}
+      <div class="canvas-value" id="second">
+
+        <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{ asset('storage/' . $values[2]->image) }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h6 class="value-title">{{ $values[2]->title }}</h6>
+                <p class="value-text">{{ $values[2]->text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{ asset('storage/' . $values[3]->image) }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h6 class="value-title">{{ $values[3]->title }}</h6>
+                <p class="value-text">{{ $values[3]->text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {{-- THIRD CANVAS - VALUE --}}
+      <div class="canvas-value" id="third">
+
+        <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{ asset('storage/' . $values[4]->image) }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h6 class="value-title">{{ $values[4]->title }}</h6>
+                <p class="value-text">{{ $values[4]->text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{ asset('storage/' . $values[5]->image) }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h6 class="value-title">{{ $values[5]->title }}</h6>
+                <p class="value-text">{{ $values[5]->text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </div>
-
-  <div class="home-value mx-auto">
-
-    {{-- FIRST CANVAS - VALUE --}}
-    <div class="canvas-value" id="first" >
-
-      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="img/professional-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h6 class="value-title">PROFESSIONAL CAR AUDIO AND DETAILING SPECIALIST</h6>
-              <p class="value-text">Kami memiliki pekerja yang sudah professional di bidang
-                car audio dan auto detailing.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="img/cafeteria-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h6 class="value-title">LOUNGE & CAFETERIA</h6>
-              <p class="value-text">Tersedia lounge & cafeteria di Premio Workshop untuk tempat
-                menunggu dan bersantai.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      
-    </div>
-
-    {{-- SECOND CANVAS - VALUE --}}
-    <div class="canvas-value" id="second">
-      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="img/detail-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h6 class="value-title">ATTENTION TO DETAIL</h6>
-              <p class="value-text">Kami memastikan tidak ada detail yang terlewat untuk
-                mendapatkan hasil yang maksimal.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="img/showroom-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h6 class="value-title">PRODUCTS DEMO & SHOWROOM</h6>
-              <p class="value-text">Di workshop kami terdapat demo dan showroom untuk
-                produk-produk yang kami gunakan.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-
-    {{-- THIRD CANVAS - VALUE --}}
-
-    <div class="canvas-value" id="third">
-
-      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="img/tools-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h6 class="value-title">MODERN TOOLS & HI-END EQUIPMENT</h6>
-              <p class="value-text">Kami menggunakan peralatan yang lengkap dan
-                tentunya dengan teknologi yang terbaru.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mb-3" id="img-val" style="max-width: 540px; background: #222222; color: white; border: none;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="img/premium-value.png" class="img-fluid rounded-start" alt="#professionalspecialist">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h6 class="value-title">PREMIUM CAR AUDIO & CAR CARE PRODUCTS</h6>
-              <p class="value-text">Kami menggunakan produk dari beberapa brand ternama
-                dan yang sudah menjadi rekomendasi baik di car audio maupun
-                di auto detailing.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-
-  </div>
-</div>
 </section>
 {{-- END OF VALUE --}}
 <div class="separator"></div> 

@@ -7,6 +7,8 @@ use App\Models\FooterContactCar;
 use App\Models\FooterContactDetailling;
 use App\Models\FooterSocmed;
 use App\Models\HomeCarouselBanner;
+use App\Models\HomeService;
+use App\Models\HomeValue;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,13 +29,17 @@ Route::get('/', function () {
     $contactcar = FooterContactCar::find(1);
     $contactdetailing = FooterContactDetailling::find(1);
     $carousels = HomeCarouselBanner::all();
+    $services = HomeService::limit(4)->get();
+    $values = HomeValue::all();
 
     return view('home', [
         'address' => $address,
         'socmeds' => $socmeds,
         'contactcar' => $contactcar,
         'contactdetailing' => $contactdetailing,
-        'carousels' => $carousels
+        'carousels' => $carousels,
+        'services' => $services,
+        'values' => $values
     ]);
 });
 
@@ -74,7 +80,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Dashboard Footer Controller
-    Route::get('/dashboard/footer', [FooterController::class, 'index']);
+Route::get('/dashboard/footer', [FooterController::class, 'index']);
 
     // Update address
     Route::post('/dashboard/footer/updateAddress/{id}', [FooterController::class, 'updateAddress']);
@@ -92,9 +98,24 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::post('/dashboard/footer/updateContactAuto/{id}', [FooterController::class, 'updateContactAuto']);
 
 // Dashboard Home Controller
-    Route::get('/dashboard/home', [HomeDashboardController::class, 'index']);
+Route::get('/dashboard/home', [HomeDashboardController::class, 'index']);
 
     // Add, Edit, Delete Carousel
     Route::post('/dashboard/home/addCarousel', [HomeDashboardController::class, 'storeCarousel']);
     Route::post('/dashboard/home/editCarousel/{id}', [HomeDashboardController::class, 'updateCarousel']);
     Route::get('/dashboard/home/deleteCarousel/{id}', [HomeDashboardController::class, 'deleteCarousel']);
+
+    // Add, Edit, Delete Service
+    Route::post('/dashboard/home/addService', [HomeDashboardController::class, 'storeService']);
+    Route::post('/dashboard/home/editService/{id}', [HomeDashboardController::class, 'updateService']);
+    Route::get('/dashboard/home/deleteService/{id}', [HomeDashboardController::class, 'deleteService']);
+
+    // Add, Edit, Delete Value
+    Route::post('/dashboard/home/addValue', [HomeDashboardController::class, 'storeValue']);
+    Route::post('/dashboard/home/editValue/{id}', [HomeDashboardController::class, 'updateValue']);
+    Route::get('/dashboard/home/deleteValue/{id}', [HomeDashboardController::class, 'deleteValue']);
+
+        // Add, Edit, Delete Highlight
+        Route::post('/dashboard/home/addHighlight', [HomeDashboardController::class, 'storeHighlight']);
+        Route::post('/dashboard/home/editHighlight/{id}', [HomeDashboardController::class, 'updateHighlight']);
+        Route::get('/dashboard/home/deleteHighlight/{id}', [HomeDashboardController::class, 'deleteHighlight']);
