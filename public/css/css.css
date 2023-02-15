@@ -32,12 +32,6 @@ section{
     height: 240px;
 }
 
-@media screen and (max-width: 720px) {
-    #img-val{
-        max-width: 200px;
-    }
-}
-
 @media screen and (max-width: 1200px) {
     .canvas-image{
         flex-direction: column;
@@ -398,4 +392,14 @@ footer{
 .cs{
     width: 100%;
     height: 100%;
+}
+
+.carousel{
+    height: 1080px;
+}
+
+@media screen and (max-width: 720px) {
+    .carousel{
+        height: 480px;
+    }
 }
