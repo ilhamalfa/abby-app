@@ -92,7 +92,6 @@ section{
     display: flex;
     width: 100%;
     justify-content: space-around;
-    margin-bottom: 14px;
 }
 
 .value-title{
@@ -101,12 +100,12 @@ section{
 }
 
 .value-text{
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .img-value{
-    max-width: 140px;
-    height: 144px;
+    max-width: 160px;
+    height: 150px;
 }
 
 @media screen and (max-width: 720px) {
