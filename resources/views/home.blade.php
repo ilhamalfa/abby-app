@@ -7,11 +7,11 @@
 <div id="carousel-banner" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="4000">
-      <img src="{{ asset('storage/' . $carousels[0]->image) }}" class="d-block w-100" alt="{{ $carousels[0]->name }}">
+      <img src="{{ asset('storage/' . $carousels[0]->image) }}" class="d-block w-100 carousel" alt="{{ $carousels[0]->name }}">
     </div>
     @foreach ($carousels->skip(1) as $carousel)
     <div class="carousel-item" data-bs-interval="4000">
-      <img src="{{ asset('storage/' . $carousel->image) }}" class="d-block w-100" alt="{{ $carousel->name }}">
+      <img src="{{ asset('storage/' . $carousel->image) }}" class="d-block w-100 carousel" alt="{{ $carousel->name }}">
     </div>
     @endforeach
   </div>
