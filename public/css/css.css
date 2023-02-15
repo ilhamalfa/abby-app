@@ -225,6 +225,7 @@ footer{
     .address, .contact, .social-media{
         margin-left: auto;
         margin-right: auto;
+        margin: 10px;
     }
 
     .social-media{
