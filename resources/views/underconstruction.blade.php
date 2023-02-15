@@ -7,6 +7,6 @@
     <title>PREMIO</title>
 </head>
 <body>
-    
+    <img src="img/img-cs.jpg" alt="#COMINGSOON" class="cs mx-auto">
 </body>
 </html>
