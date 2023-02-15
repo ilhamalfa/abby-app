@@ -372,6 +372,11 @@ footer{
 
 .gal-img{
     width: 380px;
+    transition: .2s linear;
+}
+
+.gal-img:hover{
+    transform: scale(1.1);
 }
 
 .gal-cat-title{
