@@ -408,3 +408,22 @@ footer{
         height: 480px;
     }
 }
+
+/* .popup-image{
+    position: fixed;
+    top: 0; left: 0;
+    background: rgba(0, 0, 0, .9);
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+}
+
+.popup-image img{
+    margin-top: 240px;
+    width: 50%;
+    height: 50%;
+}
+
+.popup-image span{
+    margin-top: 240px;
+} */
