@@ -67,6 +67,8 @@ nav.sticky{
 
 .menu:hover{
     color: gold;
+    font-weight: 700;
+    transition: .1s linear;
 }
 
 .menu-toggle{
