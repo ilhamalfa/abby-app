@@ -324,6 +324,7 @@ footer{
 .gallery-canvas{
     display: flex;
     flex-flow: row wrap;
+    justify-content: flex-start;
     text-align: center;
     padding: 40px 40px;
 }
@@ -361,18 +362,17 @@ footer{
 }
 
 .gallery-item{
-    margin: 20px 0;
-    text-decoration: none;
+    flex: 0 0 calc(33% - 16px);
+    margin: 20px 10px;
 }
 
 .gallery-image{
-    width: 100%;
+    width: 80%;
     height: auto;
-    align-items: center;
 }
 
 .gal-img{
-    width: 380px;
+    max-width: 300px;
     transition: .2s linear;
 }
 
