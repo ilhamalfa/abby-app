@@ -3,35 +3,61 @@
 @section('content')
 
 <section>
-  <div class="gallery-image">
+  <div class="gallery-image mx-auto">
     <div class="gallery-canvas">
     
-    <a href="" class="gallery-item mx-auto">
+    <div class="gallery-item">
       <img src="img/12.jpg" class="rounded mx-auto d-block gal-img" alt="...">
-    </a>
-    <a href="" class="gallery-item mx-auto">
+      <div class="gal-cat-title">
+        <span>AUTO DETAILING</span>
+      </div>
+    </div>
+    
+    <div class="gallery-item">
     <img src="img/13.jpg" class="rounded mx-auto d-block gal-img" alt="...">
-  </a>
-  <a href="" class="gallery-item mx-auto">
+    <div class="gal-cat-title">
+      <span>AUTO DETAILING</span>
+    </div>
+  </div>
+  
+  <div class="gallery-item">
     <img src="img/14.jpg" class="rounded mx-auto d-block gal-img" alt="...">
-  </a>
-  <a href="" class="gallery-item mx-auto">
+    <div class="gal-cat-title">
+      <span>AUTO DETAILING</span>
+    </div>
+  </div>
+  
+  <div class="gallery-item">
     <img src="img/12.jpg" class="rounded mx-auto d-block gal-img" alt="...">
-  </a>
-  <a href="" class="gallery-item mx-auto">
-    <img src="img/13.jpg" class="rounded mx-auto d-block gal-img" alt="...">
-  </a>
-    <a href="" class="gallery-item mx-auto">
-    <img src="img/14.jpg" class="rounded mx-auto d-block gal-img" alt="...">
-    </a>
-    <a href="" class="gallery-item mx-auto">
+    <div class="gal-cat-title">
+      <span>AUTO DETAILING</span>
+    </div>
+  </div>
+  
+  <div class="gallery-item">
     <img src="img/12.jpg" class="rounded mx-auto d-block gal-img" alt="...">
-    </a>
-    <a href="" class="gallery-item mx-auto">
-    <img src="img/13.jpg" class="rounded mx-auto d-block gal-img" alt="...">
-    </a>
+    <div class="gal-cat-title">
+      <span>AUTO DETAILING</span>
+    </div>
+  </div>
+
+    <div class="gallery-item">
+    <img src="img/12.jpg" class="rounded mx-auto d-block gal-img" alt="...">
+    <div class="gal-cat-title">
+      <span>AUTO DETAILING</span>
+    </div>
+  </div>
+
+    <div class="gallery-item">
+    <img src="img/12.jpg" class="rounded mx-auto d-block gal-img" alt="...">
+    <div class="gal-cat-title">
+      <span>AUTO DETAILING</span>
+    </div>
+  </div>
+  
   </div>
 </div>
+
 </section>
 
 @endsection
