@@ -362,8 +362,7 @@ footer{
 }
 
 .gallery-item{
-    flex: 0 0 calc(33% - 16px);
-    margin: 20px 10px;
+    flex: 0 0 calc(33% - -4px);
 }
 
 .gallery-image{
@@ -372,7 +371,7 @@ footer{
 }
 
 .gal-img{
-    max-width: 300px;
+    max-width: 380px;
     transition: .2s linear;
 }
 
@@ -407,6 +406,10 @@ footer{
 @media screen and (max-width: 720px) {
     .carousel{
         height: 480px;
+    }
+
+    .gallery-image{
+        width: 100%;
     }
 }
 
