@@ -417,6 +417,10 @@ footer{
     color: gold;
 }
 
+.collapse{
+    color: #222222;
+}
+
 /* .popup-image{
     position: fixed;
     top: 0; left: 0;
