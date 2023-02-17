@@ -40,7 +40,7 @@
     <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#{{asset ('storage/' . $values[0]->name) }}" aria-expanded="false" aria-controls="collapseExample">
       <img src="{{ asset('storage/' . $service->image) }}" class="rounded mx-auto d-block img-provide" alt="...">
       <div class="collapse collapse-horizontal" id="{{asset ('storage/' . $values[0]->name) }}">
-        <div class="card card-body" style="width: 360px;">
+        <div class="card card-body">
           {{asset('storage/' . $service->text) }}</div>
       </div>
     </button>
