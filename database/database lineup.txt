@@ -25,8 +25,8 @@ PAGE HOME:
 
 PAGE CAR AUDIO & AUTO DETAILING
 1. banner (image) = car_banner & auto_banner
-2. service baris 1 (image, text title, text body) = car_service & auto_service
-3. service baris 2 (image, text title, text body) = car_service & auto_service
+2. service baris 1 (image, nama_image, text title, text body) = car_service & auto_service
+3. service baris 2 (image, nama_image, text title, text body) = car_service & auto_service
 4. highlight (image) = car_highlight & auto_highlight
 5. brands partner (image) = car_brands & auto_brands
 
