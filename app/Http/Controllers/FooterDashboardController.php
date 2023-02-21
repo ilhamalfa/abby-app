@@ -8,7 +8,7 @@ use App\Models\FooterContactDetailling;
 use App\Models\FooterSocmed;
 use Illuminate\Http\Request;
 
-class FooterController extends Controller
+class FooterDashboardController extends Controller
 {
     public function index(){
         $address = FooterAddress::find(1);

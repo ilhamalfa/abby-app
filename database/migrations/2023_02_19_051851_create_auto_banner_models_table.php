@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('footer_contact_cars', function (Blueprint $table) {
+        Schema::create('auto_banner_models', function (Blueprint $table) {
             $table->id();
-            $table->string('phone');
-            $table->string('text');
+            $table->string('name');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('footer_contact_cars');
+        Schema::dropIfExists('auto_banner_models');
     }
 };

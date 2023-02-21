@@ -5,9 +5,9 @@
 {{-- BANNER --}}
 <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="img/13.jpg" class="d-block w-100" alt="#bannerautodetailing">
-      </div>
+        <div class="carousel-item active">
+            <img src="{{ asset('storage/' . $banner->image) }}" class="d-block w-100" alt="#{{ $banner->name }}">
+        </div>
     </div>
     {{-- END BANNER --}}
 
@@ -19,10 +19,8 @@
         {{-- FIRST CANVAS SERVICE --}}
         <div class="canvas-service" id="autodetailing">
             <span class="service-text">
-                AUTO DETAILING <br>
-                - Coating <br>
-                - Non-Coating <br>
-                - A la Carte
+                {{ $service1->title }} <br>
+                {{ $service1->text }}
             </span>
             <img src="" alt="">
         </div>
@@ -32,8 +30,8 @@
         {{-- SECOND CANVAS SERVICE --}}
         <div class="canvas-service" id="carwash">
             <span class="service-text">
-                PREMIUM CAR WASH <br>
-                Wash & Wax
+                {{ $service2->title }} <br>
+                {{ $service2->text }}
             </span>
             <img src="" alt="">
         </div>
@@ -48,16 +46,12 @@
     <div class="service-highlight">
         <div class="title-frame">
             <span class="title" id="highlight-t-caraudio">HIGHLIGHT :</span>
-          </div>
-        <div class="canvas-service-highlight">
-            <img src="img/12.jpg" alt="" class="img-fluid">
         </div>
-        <div class="canvas-service-highlight">
-            <img src="img/12.jpg" alt="" class="img-fluid">
-        </div>
-        <div class="canvas-service-highlight">
-            <img src="img/12.jpg" alt="" class="img-fluid">
-        </div>
+        @foreach ($highlights as $highlight)
+            <div class="canvas-service-highlight">
+                <img src="{{ asset('storage/' . $highlight->image) }}" alt="" class="img-fluid">
+            </div>
+        @endforeach
     </div>
     {{-- END HIGHLIGHT --}}
 
@@ -67,16 +61,11 @@
     <div class="brands-partner">
         <div class="title-frame">
             <span class="title" id="brands-t-autodetailing">BRANDS PARTNER :</span>
-          </div>
+        </div>
         <div class="canvas-brands" id="autodetailing-brands">
-            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
-            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
-            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
-            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
-            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
-            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
-            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
-            <img src="img/logo-flux-auto.png" alt="" class=" d-block brands-img">
+            @foreach ($brands as $brand)
+                <img src="{{ asset('storage/' . $brand->image) }}" alt="" class=" d-block brands-img">
+            @endforeach
         </div>
     </div>
     {{-- END OF BRANDS PARTNER --}}

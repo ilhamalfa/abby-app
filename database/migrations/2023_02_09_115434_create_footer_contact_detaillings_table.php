@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('footer_contact_detaillings', function (Blueprint $table) {
             $table->id();
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('text');
             $table->timestamps();
         });
