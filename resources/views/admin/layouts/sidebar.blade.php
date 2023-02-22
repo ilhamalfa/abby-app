@@ -9,8 +9,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+    <li class="nav-item {{ request()->is('dashboard') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ url('dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -24,42 +24,42 @@
     </div>
 
     <!-- Nav Item - Charts -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->is('dashboard/home*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('dashboard/home') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-fw fa-table"></i>
             <span>Page Home</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->is('dashboard/audio*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('dashboard/audio') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Page Car Audio</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->is('dashboard/auto*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('dashboard/auto') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Page Auto Detailing</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->is('dashboard/gallery*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('dashboard/gallery') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Gallery</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->is('dashboard/profile*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('dashboard/profile') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Profile</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->is('dashboard/footer*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('dashboard/footer') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Footer</span></a>

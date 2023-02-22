@@ -19,6 +19,7 @@ use App\Models\FooterAddress;
 use App\Models\FooterContactCar;
 use App\Models\FooterContactDetailling;
 use App\Models\FooterSocmed;
+use App\Models\Gallery;
 use App\Models\HomeCarouselBanner;
 use App\Models\HomeHighlight;
 use App\Models\HomeService;
@@ -112,11 +113,14 @@ Route::get('/gallery', function () {
     $socmeds = FooterSocmed::where('is_active', true)->get();
     $contactcar = FooterContactCar::find(1);
     $contactdetailing = FooterContactDetailling::find(1);
+    $galleries = Gallery::all();
+
     return view('gallery.category.showroom', [
         'address' => $address,
         'socmeds' => $socmeds,
         'contactcar' => $contactcar,
         'contactdetailing' => $contactdetailing,
+        'galleries' => $galleries
     ]);
 });
 
@@ -125,11 +129,14 @@ Route::get('/gallery-showroom', function () {
     $socmeds = FooterSocmed::where('is_active', true)->get();
     $contactcar = FooterContactCar::find(1);
     $contactdetailing = FooterContactDetailling::find(1);
+    $galleries = Gallery::where('category', 'showroom')->get();
+
     return view('gallery.category.showroom', [
         'address' => $address,
         'socmeds' => $socmeds,
         'contactcar' => $contactcar,
         'contactdetailing' => $contactdetailing,
+        'galleries' => $galleries
     ]);
 });
 
@@ -138,11 +145,14 @@ Route::get('/gallery-caraudio', function () {
     $socmeds = FooterSocmed::where('is_active', true)->get();
     $contactcar = FooterContactCar::find(1);
     $contactdetailing = FooterContactDetailling::find(1);
+    $galleries = Gallery::where('category', 'car audio')->get();
+
     return view('gallery.category.caraudio', [
         'address' => $address,
         'socmeds' => $socmeds,
         'contactcar' => $contactcar,
         'contactdetailing' => $contactdetailing,
+        'galleries' => $galleries
     ]);
 });
 
@@ -151,7 +161,23 @@ Route::get('/gallery-autodetailing', function () {
     $socmeds = FooterSocmed::where('is_active', true)->get();
     $contactcar = FooterContactCar::find(1);
     $contactdetailing = FooterContactDetailling::find(1);
+    $galleries = Gallery::where('category', 'auto detailing')->get();
+
     return view('gallery.category.autodetailing', [
+        'address' => $address,
+        'socmeds' => $socmeds,
+        'contactcar' => $contactcar,
+        'contactdetailing' => $contactdetailing,
+        'galleries' => $galleries
+    ]);
+});
+
+Route::get('/profile', function () {
+    $address = FooterAddress::find(1);
+    $socmeds = FooterSocmed::where('is_active', true)->get();
+    $contactcar = FooterContactCar::find(1);
+    $contactdetailing = FooterContactDetailling::find(1);
+    return view('profile.profile', [
         'address' => $address,
         'socmeds' => $socmeds,
         'contactcar' => $contactcar,
@@ -159,110 +185,110 @@ Route::get('/gallery-autodetailing', function () {
     ]);
 });
 
-Route::get('/profile', function () {
-    return view('profile.profile');
-});
+Auth::routes([
+    'register' => false,
+]);
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    // Dashboard Footer Controller
+    Route::get('/dashboard/footer', [FooterDashboardController::class, 'index']);
 
-// Dashboard Footer Controller
-Route::get('/dashboard/footer', [FooterDashboardController::class, 'index']);
+        // Update address
+        Route::post('/dashboard/footer/updateAddress/{id}', [FooterDashboardController::class, 'updateAddress']);
 
-    // Update address
-    Route::post('/dashboard/footer/updateAddress/{id}', [FooterDashboardController::class, 'updateAddress']);
+        //Add, Update, Activate, Delete Socmeds 
+        Route::post('/dashboard/footer/addSocmeds/', [FooterDashboardController::class, 'addSocmeds']);
+        Route::post('/dashboard/footer/updateSocmeds/{id}', [FooterDashboardController::class, 'updateSocmeds']);
+        Route::get('/dashboard/footer/activateSocmeds/{id}', [FooterDashboardController::class, 'activateSocmeds']);
+        Route::get('/dashboard/footer/deleteSocmeds/{id}', [FooterDashboardController::class, 'deleteSocmeds']);
 
-    //Add, Update, Activate, Delete Socmeds 
-    Route::post('/dashboard/footer/addSocmeds/', [FooterDashboardController::class, 'addSocmeds']);
-    Route::post('/dashboard/footer/updateSocmeds/{id}', [FooterDashboardController::class, 'updateSocmeds']);
-    Route::get('/dashboard/footer/activateSocmeds/{id}', [FooterDashboardController::class, 'activateSocmeds']);
-    Route::get('/dashboard/footer/deleteSocmeds/{id}', [FooterDashboardController::class, 'deleteSocmeds']);
+        // Contact Car
+        Route::post('/dashboard/footer/updateContactCar/{id}', [FooterDashboardController::class, 'updateContactCar']);
 
-    // Contact Car
-    Route::post('/dashboard/footer/updateContactCar/{id}', [FooterDashboardController::class, 'updateContactCar']);
-
-    // Contact auto
-    Route::post('/dashboard/footer/updateContactAuto/{id}', [FooterDashboardController::class, 'updateContactAuto']);
-
-
-// Dashboard Home Controller
-Route::get('/dashboard/home', [HomeDashboardController::class, 'index']);
-
-    // Add, Edit, Delete Carousel
-    Route::post('/dashboard/home/addCarousel', [HomeDashboardController::class, 'storeCarousel']);
-    Route::post('/dashboard/home/editCarousel/{id}', [HomeDashboardController::class, 'updateCarousel']);
-    Route::get('/dashboard/home/deleteCarousel/{id}', [HomeDashboardController::class, 'deleteCarousel']);
-
-    // Add, Edit, Delete Service
-    Route::post('/dashboard/home/addService', [HomeDashboardController::class, 'storeService']);
-    Route::post('/dashboard/home/editService/{id}', [HomeDashboardController::class, 'updateService']);
-    Route::get('/dashboard/home/deleteService/{id}', [HomeDashboardController::class, 'deleteService']);
-
-    // Add, Edit, Delete Value
-    Route::post('/dashboard/home/addValue', [HomeDashboardController::class, 'storeValue']);
-    Route::post('/dashboard/home/editValue/{id}', [HomeDashboardController::class, 'updateValue']);
-    Route::get('/dashboard/home/deleteValue/{id}', [HomeDashboardController::class, 'deleteValue']);
-
-    // Add, Edit, Delete Highlight
-    Route::post('/dashboard/home/addHighlight', [HomeDashboardController::class, 'storeHighlight']);
-    Route::post('/dashboard/home/editHighlight/{id}', [HomeDashboardController::class, 'updateHighlight']);
-    Route::get('/dashboard/home/deleteHighlight/{id}', [HomeDashboardController::class, 'deleteHighlight']);
+        // Contact auto
+        Route::post('/dashboard/footer/updateContactAuto/{id}', [FooterDashboardController::class, 'updateContactAuto']);
 
 
-// Dashboard Audio Controller
-Route::get('/dashboard/audio', [AudioDashboardController::class, 'index']);
+    // Dashboard Home Controller
+    Route::get('/dashboard/home', [HomeDashboardController::class, 'index']);
 
-    // Add, Edit, Delete Carousel
-    Route::post('/dashboard/audio/editBanner/{id}', [AudioDashboardController::class, 'updateBanner']);
+        // Add, Edit, Delete Carousel
+        Route::post('/dashboard/home/addCarousel', [HomeDashboardController::class, 'storeCarousel']);
+        Route::post('/dashboard/home/editCarousel/{id}', [HomeDashboardController::class, 'updateCarousel']);
+        Route::get('/dashboard/home/deleteCarousel/{id}', [HomeDashboardController::class, 'deleteCarousel']);
 
-    // Add, Edit, Delete Service
-    Route::post('/dashboard/audio/editService/{id}', [AudioDashboardController::class, 'updateService']);
+        // Add, Edit, Delete Service
+        Route::post('/dashboard/home/addService', [HomeDashboardController::class, 'storeService']);
+        Route::post('/dashboard/home/editService/{id}', [HomeDashboardController::class, 'updateService']);
+        Route::get('/dashboard/home/deleteService/{id}', [HomeDashboardController::class, 'deleteService']);
 
-    // Add, Edit, Delete Highlight
-    Route::post('/dashboard/audio/addHighlight', [AudioDashboardController::class, 'storeHighlight']);
-    Route::post('/dashboard/audio/editHighlight/{id}', [AudioDashboardController::class, 'updateHighlight']);
-    Route::get('/dashboard/audio/deleteHighlight/{id}', [AudioDashboardController::class, 'deleteHighlight']);
+        // Add, Edit, Delete Value
+        Route::post('/dashboard/home/addValue', [HomeDashboardController::class, 'storeValue']);
+        Route::post('/dashboard/home/editValue/{id}', [HomeDashboardController::class, 'updateValue']);
+        Route::get('/dashboard/home/deleteValue/{id}', [HomeDashboardController::class, 'deleteValue']);
 
-    // Add, Edit, Delete Brand
-    Route::post('/dashboard/audio/addBrand', [AudioDashboardController::class, 'storeBrand']);
-    Route::post('/dashboard/audio/editBrand/{id}', [AudioDashboardController::class, 'updateBrand']);
-    Route::get('/dashboard/audio/deleteBrand/{id}', [AudioDashboardController::class, 'deleteBrand']);
+        // Add, Edit, Delete Highlight
+        Route::post('/dashboard/home/addHighlight', [HomeDashboardController::class, 'storeHighlight']);
+        Route::post('/dashboard/home/editHighlight/{id}', [HomeDashboardController::class, 'updateHighlight']);
+        Route::get('/dashboard/home/deleteHighlight/{id}', [HomeDashboardController::class, 'deleteHighlight']);
 
 
-// Dashboard auto Controller
-Route::get('/dashboard/auto', [AutoDashboardController::class, 'index']);
+    // Dashboard Audio Controller
+    Route::get('/dashboard/audio', [AudioDashboardController::class, 'index']);
 
-    // Add, Edit, Delete Carousel
-    Route::post('/dashboard/auto/editBanner/{id}', [AutoDashboardController::class, 'updateBanner']);
+        // Add, Edit, Delete Carousel
+        Route::post('/dashboard/audio/editBanner/{id}', [AudioDashboardController::class, 'updateBanner']);
 
-    // Add, Edit, Delete Service
-    Route::post('/dashboard/auto/editService/{id}', [AutoDashboardController::class, 'updateService']);
+        // Add, Edit, Delete Service
+        Route::post('/dashboard/audio/editService/{id}', [AudioDashboardController::class, 'updateService']);
 
-    // Add, Edit, Delete Highlight
-    Route::post('/dashboard/auto/addHighlight', [AutoDashboardController::class, 'storeHighlight']);
-    Route::post('/dashboard/auto/editHighlight/{id}', [AutoDashboardController::class, 'updateHighlight']);
-    Route::get('/dashboard/auto/deleteHighlight/{id}', [AutoDashboardController::class, 'deleteHighlight']);
+        // Add, Edit, Delete Highlight
+        Route::post('/dashboard/audio/addHighlight', [AudioDashboardController::class, 'storeHighlight']);
+        Route::post('/dashboard/audio/editHighlight/{id}', [AudioDashboardController::class, 'updateHighlight']);
+        Route::get('/dashboard/audio/deleteHighlight/{id}', [AudioDashboardController::class, 'deleteHighlight']);
 
-    // Add, Edit, Delete Brand
-    Route::post('/dashboard/auto/addBrand', [AutoDashboardController::class, 'storeBrand']);
-    Route::post('/dashboard/auto/editBrand/{id}', [AutoDashboardController::class, 'updateBrand']);
-    Route::get('/dashboard/auto/deleteBrand/{id}', [AutoDashboardController::class, 'deleteBrand']);
+        // Add, Edit, Delete Brand
+        Route::post('/dashboard/audio/addBrand', [AudioDashboardController::class, 'storeBrand']);
+        Route::post('/dashboard/audio/editBrand/{id}', [AudioDashboardController::class, 'updateBrand']);
+        Route::get('/dashboard/audio/deleteBrand/{id}', [AudioDashboardController::class, 'deleteBrand']);
 
-// Dashboard Gallery Controller
-Route::get('/dashboard/gallery', [GalleryController::class, 'index']);
 
-    // Add, Edit, Delete Gallery
-    Route::post('/dashboard/gallery/addGallery', [GalleryController::class, 'storeGallery']);
-    Route::post('/dashboard/gallery/editGallery/{id}', [GalleryController::class, 'updateGallery']);
-    Route::get('/dashboard/gallery/deleteGallery/{id}', [GalleryController::class, 'deleteGallery']);
+    // Dashboard auto Controller
+    Route::get('/dashboard/auto', [AutoDashboardController::class, 'index']);
 
-// Dashboard Profile Controller
-Route::get('/dashboard/profile', [ProfileController::class, 'index']);
+        // Add, Edit, Delete Carousel
+        Route::post('/dashboard/auto/editBanner/{id}', [AutoDashboardController::class, 'updateBanner']);
+
+        // Add, Edit, Delete Service
+        Route::post('/dashboard/auto/editService/{id}', [AutoDashboardController::class, 'updateService']);
+
+        // Add, Edit, Delete Highlight
+        Route::post('/dashboard/auto/addHighlight', [AutoDashboardController::class, 'storeHighlight']);
+        Route::post('/dashboard/auto/editHighlight/{id}', [AutoDashboardController::class, 'updateHighlight']);
+        Route::get('/dashboard/auto/deleteHighlight/{id}', [AutoDashboardController::class, 'deleteHighlight']);
+
+        // Add, Edit, Delete Brand
+        Route::post('/dashboard/auto/addBrand', [AutoDashboardController::class, 'storeBrand']);
+        Route::post('/dashboard/auto/editBrand/{id}', [AutoDashboardController::class, 'updateBrand']);
+        Route::get('/dashboard/auto/deleteBrand/{id}', [AutoDashboardController::class, 'deleteBrand']);
+
+    // Dashboard Gallery Controller
+    Route::get('/dashboard/gallery', [GalleryController::class, 'index']);
+
+        // Add, Edit, Delete Gallery
+        Route::post('/dashboard/gallery/addGallery', [GalleryController::class, 'storeGallery']);
+        Route::post('/dashboard/gallery/editGallery/{id}', [GalleryController::class, 'updateGallery']);
+        Route::get('/dashboard/gallery/deleteGallery/{id}', [GalleryController::class, 'deleteGallery']);
+
+    // Dashboard Profile Controller
+    Route::get('/dashboard/profile', [ProfileController::class, 'index']);
 
     // Add, Edit, Delete profile
     Route::post('/dashboard/profile/editProfile/{id}', [ProfileController::class, 'updateProfile']);
+});
