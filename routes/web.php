@@ -20,6 +20,7 @@ use App\Models\FooterContactCar;
 use App\Models\FooterContactDetailling;
 use App\Models\FooterSocmed;
 use App\Models\Gallery;
+use App\Models\Profile;
 use App\Models\HomeCarouselBanner;
 use App\Models\HomeHighlight;
 use App\Models\HomeService;
@@ -173,11 +174,13 @@ Route::get('/gallery-autodetailing', function () {
 });
 
 Route::get('/profile', function () {
+    $profile = Profile::find(1);
     $address = FooterAddress::find(1);
     $socmeds = FooterSocmed::where('is_active', true)->get();
     $contactcar = FooterContactCar::find(1);
     $contactdetailing = FooterContactDetailling::find(1);
     return view('profile.profile', [
+        'profile' => $profile,
         'address' => $address,
         'socmeds' => $socmeds,
         'contactcar' => $contactcar,
